@@ -2,33 +2,35 @@
 
 /* Color Variables for Themes */
 :root {
-    --bg-color: #f8fafc;
-    --text-color: #0f172a;
-    --text-muted: #64748b;
+    --bg-color: #f4f4f5;
+    --text-color: #18181b;
+    --text-muted: #71717a;
     --panel-bg: #ffffff;
-    --nav-bg: rgba(255, 255, 255, 0.7);
-    --primary-color: #6366f1; /* Indigo 500 */
-    --primary-hover: #4f46e5;
-    --primary-light: #e0e7ff;
-    --border-color: #e2e8f0;
-    --shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-    --shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.08);
-    --radius: 16px;
+    --nav-bg: rgba(255, 255, 255, 0.85);
+    --primary-color: #8b5cf6; /* Violet 500 */
+    --primary-grad: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+    --primary-hover: #7c3aed;
+    --primary-light: #ede9fe;
+    --border-color: #e4e4e7;
+    --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 20px 40px -5px rgba(139, 92, 246, 0.15);
+    --radius: 20px;
 }
 
 /* Modern Dark Mode */
 [data-theme="amoled"] {
-    --bg-color: #09090b;
-    --text-color: #f8fafc;
-    --text-muted: #94a3b8;
+    --bg-color: #09090b; /* Zinc 950 */
+    --text-color: #fafafa;
+    --text-muted: #a1a1aa;
     --panel-bg: #18181b;
-    --nav-bg: rgba(24, 24, 27, 0.7);
-    --primary-color: #818cf8;
-    --primary-hover: #6366f1;
+    --nav-bg: rgba(24, 24, 27, 0.85);
+    --primary-color: #a78bfa; /* Violet 400 */
+    --primary-grad: linear-gradient(135deg, #a78bfa 0%, #818cf8 100%);
+    --primary-hover: #8b5cf6;
     --primary-light: rgba(99, 102, 241, 0.15);
     --border-color: #27272a;
-    --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-    --shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.6);
+    --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.4);
+    --shadow-hover: 0 20px 40px -5px rgba(167, 139, 250, 0.15);
 }
 
 * {
@@ -76,7 +78,9 @@ body {
 .logo {
     font-size: 1.5rem;
     font-weight: 800;
-    color: var(--primary-color);
+    background: var(--primary-grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     letter-spacing: -0.5px;
 }
 
@@ -103,24 +107,25 @@ body {
     width: 100%;
     padding: 10px 14px;
     border: none;
+    border-left: 4px solid transparent;
     border-radius: 10px;
     background-color: transparent;
     color: var(--text-muted);
     cursor: pointer;
     font-weight: 500;
-    transition: all 0.2s ease;
+    transition: all 0.25s ease;
     display: flex;
     align-items: center;
     gap: 8px;
     font-size: 0.95rem;
 }
-.nav-btn:hover { background-color: var(--border-color); color: var(--text-color); }
-.nav-btn.active { background-color: var(--primary-light); color: var(--primary-color); font-weight: 600; }
+.nav-btn:hover { background-color: var(--border-color); color: var(--text-color); border-left-color: var(--text-muted); border-radius: 4px 10px 10px 4px; }
+.nav-btn.active { background-color: var(--primary-light); color: var(--primary-color); font-weight: 600; border-left-color: var(--primary-color); border-radius: 4px 10px 10px 4px; }
 
 /* Layout */
 .container { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
-.tool-section { display: none; background-color: var(--panel-bg); padding: 2.5rem; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border-color); animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1); transition: box-shadow 0.3s ease; }
-.tool-section:hover { box-shadow: var(--shadow-hover); }
+.tool-section { display: none; background-color: var(--panel-bg); padding: 2.5rem; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border-color); animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.tool-section:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
 .tool-section.active { display: block; }
 
 h2 { margin-bottom: 0.5rem; font-size: 1.75rem; font-weight: 700; color: var(--text-color); }
@@ -138,8 +143,8 @@ p { margin-bottom: 2rem; color: var(--text-muted); line-height: 1.6; }
 input[type="number"], input[type="text"], input[type="date"], input[type="color"], .tool-textarea { padding: 0.75rem 1rem; background-color: var(--bg-color); color: var(--text-color); border: 1px solid var(--border-color); border-radius: 8px; outline: none; transition: 0.2s; font-size: 1rem; }
 input[type="number"]:focus, input[type="text"]:focus, input[type="date"]:focus, input[type="color"]:focus, .tool-textarea:focus { border-color: var(--primary-color); box-shadow: 0 0 0 3px var(--primary-light); }
 
-.action-btn { background-color: var(--primary-color); color: white; border: none; padding: 14px 24px; font-size: 1rem; border-radius: 10px; cursor: pointer; font-weight: 600; transition: all 0.2s ease; width: 100%; }
-.action-btn:hover { background-color: var(--primary-hover); transform: translateY(-1px); box-shadow: 0 4px 12px var(--primary-light); }
+.action-btn { background: var(--primary-grad); color: white; border: none; padding: 14px 24px; font-size: 1rem; border-radius: 12px; cursor: pointer; font-weight: 600; transition: all 0.3s ease; width: 100%; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+.action-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px var(--primary-light); }
 .action-btn:active { transform: translateY(1px); }
 .status-msg { margin-top: 1rem; font-weight: bold; color: var(--primary-color); }
 
@@ -150,15 +155,35 @@ input[type="number"]:focus, input[type="text"]:focus, input[type="date"]:focus, 
 .calc-btn { padding: 1.25rem 1rem; font-size: 1.25rem; font-weight: 500; border: none; border-radius: 12px; cursor: pointer; background-color: var(--bg-color); color: var(--text-color); transition: all 0.15s ease; border: 1px solid var(--border-color); }
 .calc-btn:hover { background-color: var(--border-color); transform: scale(0.97); }
 .calc-btn:active { transform: scale(0.92); }
-.calc-btn.op { background-color: var(--primary-light); color: var(--primary-color); font-weight: 600; border-color: transparent; }
+.calc-btn.op { background: var(--primary-light); color: var(--primary-color); font-weight: 600; border-color: transparent; }
 .calc-btn.clear { background-color: #fee2e2; color: #ef4444; border-color: transparent; font-weight: 600;}
-.calc-btn.equal { background-color: var(--primary-color); color: white; }
+.calc-btn.equal { background: var(--primary-grad); color: white; }
 [data-theme="amoled"] .calc-btn.clear { background-color: rgba(239, 68, 68, 0.2); }
 
 /* Tool Utility Classes */
 .tool-textarea { width: 100%; min-height: 120px; resize: vertical; font-family: 'Inter', inherit; }
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.result-box { padding: 1.5rem; background-color: var(--bg-color); border: 1px solid var(--border-color); border-radius: 12px; min-height: 50px; word-break: break-all; font-weight: 500;}
+.result-box { padding: 1.5rem; background-color: var(--bg-color); border: 1px solid var(--border-color); border-radius: 12px; min-height: 50px; word-break: break-all; font-weight: 500; position: relative;}
+
+.copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--primary-light);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1rem;
+}
+.copy-btn:hover { background: var(--primary-color); color: white; transform: scale(1.05); }
+
 .box-shadow-preview { width: 150px; height: 150px; background-color: var(--primary-color); margin: 2rem auto; border-radius: 20px; }
 .text-center { text-align: center; }
 .mt-2 { margin-top: 1rem; }
