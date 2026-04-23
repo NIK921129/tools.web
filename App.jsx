@@ -166,6 +166,22 @@ export default function App() {
     );
 }
 
+// --- UTILITY COMPONENTS ---
+function CopyButton({ text }) {
+    const [copied, setCopied] = useState(false);
+    const handleCopy = () => {
+        if (!text) return;
+        navigator.clipboard.writeText(text);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
+    return (
+        <button className="copy-btn" onClick={handleCopy} title="Copy to clipboard">
+            {copied ? '✅' : '📋'}
+        </button>
+    );
+}
+
 // --- TEXT TOOLS ---
 
 function WordCounter() {
