@@ -66,6 +66,7 @@ export default function App() {
     const [theme, setTheme] = useState('light');
     const [activeTab, setActiveTab] = useState('img-to-pdf');
     const [searchQuery, setSearchQuery] = useState('');
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     const toggleTheme = () => {
         const newTheme = theme === 'amoled' ? 'light' : 'amoled';
@@ -80,14 +81,20 @@ export default function App() {
     return (
         <div className="app-wrapper">
             <nav className="navbar">
-                <div className="logo">✨ NIK TOOLS</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <button className="mobile-menu-btn" onClick={() => setIsSidebarOpen(true)} title="Open Menu">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    </button>
+                    <div className="logo">✨ NIK TOOLS</div>
+                </div>
                 <button id="theme-toggle" className="theme-btn" onClick={toggleTheme}>
                     {theme === 'amoled' ? '☀️ Light Mode' : '🌙 Dark Mode'}
                 </button>
             </nav>
 
             <div className="app-layout">
-                <aside className="sidebar">
+                <div className={`sidebar-overlay ${isSidebarOpen ? 'open' : ''}`} onClick={() => setIsSidebarOpen(false)}></div>
+                <aside className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
                     <div style={{ position: 'sticky', top: 0, backgroundColor: 'var(--bg-color)', zIndex: 10, paddingBottom: '0.5rem' }}>
                         <input 
                             type="text" 
@@ -104,7 +111,7 @@ export default function App() {
                             <React.Fragment key={idx}>
                                 <div className="sidebar-category">{cat.category}</div>
                                 {filtered.map(tool => (
-                                    <button key={tool.id} className={`nav-btn ${activeTab === tool.id ? 'active' : ''}`} onClick={() => setActiveTab(tool.id)}>
+                                    <button key={tool.id} className={`nav-btn ${activeTab === tool.id ? 'active' : ''}`} onClick={() => { setActiveTab(tool.id); setIsSidebarOpen(false); }}>
                                         {tool.label}
                                     </button>
                                 ))}
