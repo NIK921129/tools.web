@@ -16,25 +16,33 @@ export default function App() {
     };
 
     return (
-        <>
+        <div className="app-wrapper">
             <nav className="navbar">
-                <div className="logo">NIK TOOLS</div>
-                <div className="nav-links">
-                    <button className={`nav-btn ${activeTab === 'img-to-pdf' ? 'active' : ''}`} onClick={() => setActiveTab('img-to-pdf')}>Image to PDF</button>
-                    <button className={`nav-btn ${activeTab === 'img-compress' ? 'active' : ''}`} onClick={() => setActiveTab('img-compress')}>Image Compressor</button>
-                    <button className={`nav-btn ${activeTab === 'calculator' ? 'active' : ''}`} onClick={() => setActiveTab('calculator')}>Scientific Calculator</button>
-                    <button id="theme-toggle" className="theme-btn" onClick={toggleTheme}>
-                        {theme === 'amoled' ? '☀️ Light Mode' : '🌙 AMOLED Mode'}
-                    </button>
-                </div>
+                <div className="logo">✨ NIK TOOLS</div>
+                <button id="theme-toggle" className="theme-btn" onClick={toggleTheme}>
+                    {theme === 'amoled' ? '☀️ Light Mode' : '🌙 Dark Mode'}
+                </button>
             </nav>
 
-            <main className="container">
-                {activeTab === 'img-to-pdf' && <ImageToPdf />}
-                {activeTab === 'img-compress' && <ImageCompressor />}
-                {activeTab === 'calculator' && <Calculator />}
-            </main>
-        </>
+            <div className="app-layout">
+                <aside className="sidebar">
+                    <div className="sidebar-category">Media Tools</div>
+                    <button className={`nav-btn ${activeTab === 'img-to-pdf' ? 'active' : ''}`} onClick={() => setActiveTab('img-to-pdf')}>📄 Image to PDF</button>
+                    <button className={`nav-btn ${activeTab === 'img-compress' ? 'active' : ''}`} onClick={() => setActiveTab('img-compress')}>🗜️ Image Compressor</button>
+                    
+                    <div className="sidebar-category">Math & Logic</div>
+                    <button className={`nav-btn ${activeTab === 'calculator' ? 'active' : ''}`} onClick={() => setActiveTab('calculator')}>🧮 Calculator</button>
+                </aside>
+                
+                <main className="main-content">
+                    <div className="container">
+                        {activeTab === 'img-to-pdf' && <ImageToPdf />}
+                        {activeTab === 'img-compress' && <ImageCompressor />}
+                        {activeTab === 'calculator' && <Calculator />}
+                    </div>
+                </main>
+            </div>
+        </div>
     );
 }
 
@@ -84,7 +92,7 @@ function ImageToPdf() {
         <section className="tool-section active">
             <h2>Images to Single PDF</h2>
             <p>Select multiple JPG or PNG files to combine them into a single PDF document.</p>
-            <div className="input-group">
+            <div className="file-drop-area">
                 <input type="file" ref={fileInputRef} accept="image/png, image/jpeg" multiple />
             </div>
             <button className="action-btn" onClick={generatePdf}>Convert to PDF</button>
@@ -137,11 +145,11 @@ function ImageCompressor() {
         <section className="tool-section active">
             <h2>Image Compressor & Resizer</h2>
             <p>Reduce the file size and dimensions of your images right in the browser.</p>
-            <div className="input-group">
+            <div className="file-drop-area">
                 <input type="file" ref={fileInputRef} accept="image/png, image/jpeg" />
             </div>
             <div className="controls">
-                <label>Quality: <span>{quality}%</span>
+                <label>Quality: <span className="highlight-text">{quality}%</span>
                     <input type="range" min="10" max="100" value={quality} onChange={(e) => setQuality(e.target.value)} />
                 </label>
                 <label>Width (px):
