@@ -135,8 +135,8 @@ p { margin-bottom: 2rem; color: var(--text-muted); line-height: 1.6; }
 .controls label { display: flex; flex-direction: column; font-weight: 500; gap: 0.5rem; flex: 1; min-width: 200px; }
 .highlight-text { color: var(--primary-color); font-weight: 700; }
 
-input[type="number"], input[type="text"], .tool-textarea { padding: 0.75rem 1rem; background-color: var(--bg-color); color: var(--text-color); border: 1px solid var(--border-color); border-radius: 8px; outline: none; transition: 0.2s; font-size: 1rem; }
-input[type="number"]:focus, input[type="text"]:focus, .tool-textarea:focus { border-color: var(--primary-color); box-shadow: 0 0 0 3px var(--primary-light); }
+input[type="number"], input[type="text"], input[type="date"], input[type="color"], .tool-textarea { padding: 0.75rem 1rem; background-color: var(--bg-color); color: var(--text-color); border: 1px solid var(--border-color); border-radius: 8px; outline: none; transition: 0.2s; font-size: 1rem; }
+input[type="number"]:focus, input[type="text"]:focus, input[type="date"]:focus, input[type="color"]:focus, .tool-textarea:focus { border-color: var(--primary-color); box-shadow: 0 0 0 3px var(--primary-light); }
 
 .action-btn { background-color: var(--primary-color); color: white; border: none; padding: 14px 24px; font-size: 1rem; border-radius: 10px; cursor: pointer; font-weight: 600; transition: all 0.2s ease; width: 100%; }
 .action-btn:hover { background-color: var(--primary-hover); transform: translateY(-1px); box-shadow: 0 4px 12px var(--primary-light); }
