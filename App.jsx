@@ -282,7 +282,7 @@ function ContrastChecker() {
             </div>
             <div className="result-box text-center">
                 Contrast Ratio: <h2>{ratio.toFixed(2)}:1</h2>
-                <span style={{color: ratio >= 4.5 ? 'var(--success-color)' : 'var(--danger-color)'}}>{ratio >= 4.5 ? 'Pass (AA)' : 'Fail'}</span>
+                <span style={{color: ratio >= 4.5 ? '#bcd81d' : '#d10536'}}>{ratio >= 4.5 ? 'Pass (AA)' : 'Fail'}</span>
             </div>
         </section>
     );
@@ -324,7 +324,7 @@ function PalindromeChecker() {
             <h2>Palindrome Checker</h2>
             <input type="text" style={{width:'100%'}} placeholder="Type a word or phrase..." value={text} onChange={e=>setText(e.target.value)} />
             <div className="result-box text-center mt-2">
-                {text.length === 0 ? <h3>...</h3> : <h2 style={{color: isPal ? 'var(--success-color)' : 'var(--danger-color)'}}>{isPal ? 'It is a Palindrome!' : 'Not a Palindrome'}</h2>}
+                {text.length === 0 ? <h3>...</h3> : <h2 style={{color: isPal ? '#bcd81d' : '#d10536'}}>{isPal ? 'It is a Palindrome!' : 'Not a Palindrome'}</h2>}
             </div>
         </section>
     );
@@ -377,7 +377,7 @@ function AnagramChecker() {
                 <label>Word/Phrase 2: <input type="text" value={w2} onChange={e=>setW2(e.target.value)} /></label>
             </div>
             <div className="result-box text-center mt-2">
-                {(!w1 || !w2) ? <h3>...</h3> : <h2 style={{color: isAnagram ? 'var(--success-color)' : 'var(--danger-color)'}}>{isAnagram ? 'They are Anagrams!' : 'Not Anagrams'}</h2>}
+                {(!w1 || !w2) ? <h3>...</h3> : <h2 style={{color: isAnagram ? '#bcd81d' : '#d10536'}}>{isAnagram ? 'They are Anagrams!' : 'Not Anagrams'}</h2>}
             </div>
         </section>
     );
@@ -734,7 +734,7 @@ function Magic8Ball() {
         <section className="tool-section active text-center">
             <h2>Magic 8 Ball</h2>
             <div className="result-box mt-2" style={{height:'200px', width:'200px', borderRadius:'50%', background:'#111', color:'#fff', display:'flex', alignItems:'center', justifyContent:'center', margin:'0 auto', border:'10px solid #333', padding:'1rem'}}>
-                <h3 style={{color:'var(--primary-color)'}}>{ans}</h3>
+                <h3 style={{color:'#5c8d84'}}>{ans}</h3>
             </div>
             <button className="action-btn mt-4" onClick={() => setAns(answers[Math.floor(Math.random() * answers.length)])}>Shake 8 Ball</button>
         </section>
@@ -1104,6 +1104,12 @@ function KeycodeFinder() {
     
     useEffect(() => {
         const handle = (e) => { e.preventDefault(); setKey(e.key === ' ' ? 'Space' : e.key); setCode(e.keyCode); };
+        const handle = (e) => { 
+            // SCROLL FIX 3: Only prevent default behavior for keys that inherently scroll the page
+            if ([' ', 'ArrowUp', 'ArrowDown', 'PageUp', 'PageDown'].includes(e.key)) { e.preventDefault(); }
+            setKey(e.key === ' ' ? 'Space' : e.key); 
+            setCode(e.keyCode); 
+        };
         window.addEventListener('keydown', handle);
         return () => window.removeEventListener('keydown', handle);
     }, []);
@@ -1223,7 +1229,7 @@ function PrimeChecker() {
             <h2>Prime Number Checker</h2>
             <input type="number" style={{width:'100%'}} value={num} onChange={e=>setNum(e.target.value)} />
             <div className="result-box text-center mt-2">
-                <h2 style={{color: isP ? 'var(--success-color)' : 'var(--danger-color)'}}>{num} is {isP ? 'Prime' : 'NOT Prime'}</h2>
+                <h2 style={{color: isP ? '#bcd81d' : '#d10536'}}>{num} is {isP ? 'Prime' : 'NOT Prime'}</h2>
             </div>
         </section>
     );
@@ -1251,7 +1257,7 @@ function PomodoroTimer() {
             <div className="result-box text-center mt-2"><h3 style={{color:'var(--text-muted)'}}>{mode}</h3><h1 style={{fontSize:'4rem', fontVariantNumeric:'tabular-nums'}}>{m}:{s}</h1></div>
             <div className="controls mt-2">
                 <button className="action-btn" onClick={()=>setRunning(!running)}>{running ? 'Pause' : 'Start'}</button>
-                <button className="action-btn" style={{background:'var(--warning-color)'}} onClick={()=>{setRunning(false); setTimeLeft(mode==='Work'?25*60:5*60);}}>Reset</button>
+                <button className="action-btn" style={{background:'#7f7f27'}} onClick={()=>{setRunning(false); setTimeLeft(mode==='Work'?25*60:5*60);}}>Reset</button>
             </div>
         </section>
     );
@@ -1281,7 +1287,7 @@ function LeapYear() {
             <h2>Leap Year Checker</h2>
             <input type="number" style={{width:'100%'}} value={year} onChange={e=>setYear(e.target.value)} />
             <div className="result-box text-center mt-2">
-                <h2 style={{color: isLeap ? 'var(--success-color)' : 'var(--danger-color)'}}>{year} is {isLeap ? 'a Leap Year' : 'NOT a Leap Year'}</h2>
+                <h2 style={{color: isLeap ? '#bcd81d' : '#d10536'}}>{year} is {isLeap ? 'a Leap Year' : 'NOT a Leap Year'}</h2>
             </div>
         </section>
     );
@@ -1411,8 +1417,8 @@ function Stopwatch() {
             <div className="result-box text-center"><h1 style={{fontSize:'3rem', fontVariantNumeric:'tabular-nums'}}>{new Date(time*1000).toISOString().substr(11,8)}</h1></div>
             <div className="controls mt-2">
                 <button className="action-btn" onClick={()=>setRunning(true)}>Start</button>
-                <button className="action-btn" style={{background:'var(--danger-color)'}} onClick={()=>setRunning(false)}>Stop</button>
-                <button className="action-btn" style={{background:'var(--warning-color)'}} onClick={()=>{setRunning(false); setTime(0);}}>Reset</button>
+                <button className="action-btn" style={{background:'#d10536'}} onClick={()=>setRunning(false)}>Stop</button>
+                <button className="action-btn" style={{background:'#7f7f27'}} onClick={()=>{setRunning(false); setTime(0);}}>Reset</button>
             </div>
         </section>
     );
@@ -1448,8 +1454,8 @@ function ColorPaletteGen() {
 }
 
 function CssGradientGen() {
-    const [c1, setC1] = useState('#8b5cf6');
-    const [c2, setC2] = useState('#6366f1');
+    const [c1, setC1] = useState('#f66b02');
+    const [c2, setC2] = useState('#5c8d84');
     const [angle, setAngle] = useState(135);
     const grad = `linear-gradient(${angle}deg, ${c1}, ${c2})`;
     return (
