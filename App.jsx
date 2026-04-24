@@ -11,7 +11,8 @@ const sidebarData = [
         { id: "css-gradient", label: "🌈 CSS Gradient Gen" },
         { id: "border-radius", label: "⭕ Border Radius Gen" },
         { id: "hex-rgb", label: "🖌️ HEX to RGB" },
-        { id: "box-shadow", label: "🧊 Box Shadow Gen" }
+        { id: "box-shadow", label: "🧊 Box Shadow Gen" },
+        { id: "contrast-chk", label: "🌗 Contrast Checker" }
     ]},
     { category: "Text Tools", tools: [
         { id: "word-count", label: "📝 Word/Char Counter" },
@@ -23,7 +24,12 @@ const sidebarData = [
         { id: "html-entity", label: "<> HTML Entities" },
         { id: "text-binary", label: "01 Text <> Binary" },
         { id: "word-shuffle", label: "🔀 Word Shuffle" },
-        { id: "vowel-cons", label: "🅰️ Vowel Counter" }
+        { id: "vowel-cons", label: "🅰️ Vowel Counter" },
+        { id: "morse-code", label: "📡 Morse Code Tool" },
+        { id: "palindrome-chk", label: "🔁 Palindrome Check" },
+        { id: "text-repeat", label: "📑 Text Repeater" },
+        { id: "line-break-rem", label: "🚫 Remove Line Breaks" },
+        { id: "anagram-chk", label: "🔠 Anagram Checker" }
     ]},
     { category: "Developer Tools", tools: [
         { id: "json-format", label: "{} JSON Formatter" },
@@ -34,7 +40,11 @@ const sidebarData = [
         { id: "hash-gen", label: "#️⃣ SHA-256 Hash Gen" },
         { id: "uuid-gen", label: "🔑 UUID Generator" },
         { id: "pwd-gen", label: "🛡️ Password Generator" },
-        { id: "keycode-info", label: "⌨️ Keycode Finder" }
+        { id: "keycode-info", label: "⌨️ Keycode Finder" },
+        { id: "xml-format", label: "📋 XML Formatter" },
+        { id: "css-minify", label: "🎨 CSS Minifier" },
+        { id: "html-minify", label: "🌐 HTML Minifier" },
+        { id: "regex-test", label: "🔍 Regex Tester" }
     ]},
     { category: "Math & Finance", tools: [
         { id: "calculator", label: "🧮 Calculator" },
@@ -45,7 +55,10 @@ const sidebarData = [
         { id: "prime-chk", label: "🔢 Prime Checker" },
         { id: "pct-calc", label: "% Percentage Calc" },
         { id: "bmi-calc", label: "⚖️ BMI Calculator" },
-        { id: "age-calc", label: "🎂 Age Calculator" }
+        { id: "age-calc", label: "🎂 Age Calculator" },
+        { id: "compound-int", label: "📈 Compound Interest" },
+        { id: "roman-num", label: "🏛️ Roman Numerals" },
+        { id: "gcd-lcm", label: "➗ GCD & LCM Calc" }
     ]},
     { category: "Utility & Time", tools: [
         { id: "qr-gen", label: "🔳 QR Code Gen" },
@@ -53,12 +66,20 @@ const sidebarData = [
         { id: "stopwatch", label: "⏱️ Stopwatch" },
         { id: "unix-time", label: "⏳ Unix Time Convert" },
         { id: "date-diff", label: "📅 Date Difference" },
-        { id: "leap-year", label: "🐸 Leap Year Check" }
+        { id: "leap-year", label: "🐸 Leap Year Check" },
+        { id: "temp-conv", label: "🌡️ Temperature Conv" },
+        { id: "length-conv", label: "📏 Length Converter" },
+        { id: "weight-conv", label: "⚖️ Weight Converter" },
+        { id: "data-conv", label: "💾 Data Storage Conv" },
+        { id: "speed-conv", label: "🚗 Speed Converter" },
+        { id: "countdown-timer", label: "⏲️ Countdown Timer" }
     ]},
     { category: "Fun & Games", tools: [
         { id: "coin-flip", label: "🪙 Coin Flipper" },
         { id: "dice-roll", label: "🎲 Dice Roller" },
-        { id: "rng-tool", label: "🎰 Random Number" }
+        { id: "rng-tool", label: "🎰 Random Number" },
+        { id: "magic-8-ball", label: "🎱 Magic 8 Ball" },
+        { id: "joke-gen", label: "😂 Joke Generator" }
     ]}
 ];
 
@@ -166,6 +187,27 @@ export default function App() {
                         {activeTab === 'pct-calc' && <PercentageCalculator />}
                         {activeTab === 'stopwatch' && <Stopwatch />}
                         {activeTab === 'unix-time' && <UnixConverter />}
+                        {activeTab === 'contrast-chk' && <ContrastChecker />}
+                        {activeTab === 'morse-code' && <MorseCodeTool />}
+                        {activeTab === 'palindrome-chk' && <PalindromeChecker />}
+                        {activeTab === 'text-repeat' && <TextRepeater />}
+                        {activeTab === 'line-break-rem' && <LineBreakRemover />}
+                        {activeTab === 'anagram-chk' && <AnagramChecker />}
+                        {activeTab === 'xml-format' && <XmlFormatter />}
+                        {activeTab === 'css-minify' && <CssMinifier />}
+                        {activeTab === 'html-minify' && <HtmlMinifier />}
+                        {activeTab === 'regex-test' && <RegexTester />}
+                        {activeTab === 'compound-int' && <CompoundInterestCalc />}
+                        {activeTab === 'roman-num' && <RomanNumeralConverter />}
+                        {activeTab === 'gcd-lcm' && <GcdLcmCalculator />}
+                        {activeTab === 'temp-conv' && <TemperatureConverter />}
+                        {activeTab === 'length-conv' && <LengthConverter />}
+                        {activeTab === 'weight-conv' && <WeightConverter />}
+                        {activeTab === 'data-conv' && <DataStorageConverter />}
+                        {activeTab === 'speed-conv' && <SpeedConverter />}
+                        {activeTab === 'countdown-timer' && <CountdownTimer />}
+                        {activeTab === 'magic-8-ball' && <Magic8Ball />}
+                        {activeTab === 'joke-gen' && <JokeGenerator />}
                     </div>
                 </main>
             </div>
@@ -201,6 +243,526 @@ function WordCounter() {
                 <div className="result-box text-center">Words: <br/><strong style={{fontSize:'1.5rem'}}>{text.trim() ? text.trim().split(/\s+/).length : 0}</strong></div>
                 <div className="result-box text-center">Characters: <br/><strong style={{fontSize:'1.5rem'}}>{text.length}</strong></div>
             </div>
+        </section>
+    );
+}
+
+function ContrastChecker() {
+    const [hex1, setHex1] = useState('#ffffff');
+    const [hex2, setHex2] = useState('#000000');
+    
+    const getLuminance = (hex) => {
+        let rgb = parseInt(hex.slice(1), 16);
+        let r = (rgb >> 16) & 0xff;
+        let g = (rgb >>  8) & 0xff;
+        let b = (rgb >>  0) & 0xff;
+        let a = [r, g, b].map(v => {
+            v /= 255;
+            return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+        });
+        return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+    };
+    
+    const lum1 = getLuminance(hex1);
+    const lum2 = getLuminance(hex2);
+    const brightest = Math.max(lum1, lum2);
+    const darkest = Math.min(lum1, lum2);
+    const ratio = (brightest + 0.05) / (darkest + 0.05);
+    
+    return (
+        <section className="tool-section active">
+            <h2>Color Contrast Checker</h2>
+            <div className="controls">
+                <label>Background: <input type="color" value={hex1} onChange={e=>setHex1(e.target.value)} style={{padding:0}} /></label>
+                <label>Text Color: <input type="color" value={hex2} onChange={e=>setHex2(e.target.value)} style={{padding:0}} /></label>
+            </div>
+            <div style={{backgroundColor: hex1, color: hex2, padding: '2rem', borderRadius: '12px', textAlign: 'center', marginBottom: '1rem'}}>
+                <h3 style={{color: hex2}}>Preview Text</h3>
+                <p style={{color: hex2, marginBottom: 0}}>This is how your text will look.</p>
+            </div>
+            <div className="result-box text-center">
+                Contrast Ratio: <h2>{ratio.toFixed(2)}:1</h2>
+                <span style={{color: ratio >= 4.5 ? 'var(--success-color)' : 'var(--danger-color)'}}>{ratio >= 4.5 ? 'Pass (AA)' : 'Fail'}</span>
+            </div>
+        </section>
+    );
+}
+
+function MorseCodeTool() {
+    const [text, setText] = useState('');
+    const [mode, setMode] = useState('toMorse');
+    const dict = { 'A':'.-', 'B':'-...', 'C':'-.-.', 'D':'-..', 'E':'.', 'F':'..-.', 'G':'--.', 'H':'....', 'I':'..', 'J':'.---', 'K':'-.-', 'L':'.-..', 'M':'--', 'N':'-.', 'O':'---', 'P':'.--.', 'Q':'--.-', 'R':'.-.', 'S':'...', 'T':'-', 'U':'..-', 'V':'...-', 'W':'.--', 'X':'-..-', 'Y':'-.--', 'Z':'--..', '1':'.----', '2':'..---', '3':'...--', '4':'....-', '5':'.....', '6':'-....', '7':'--...', '8':'---..', '9':'----.', '0':'-----', ' ':'/' };
+    const revDict = Object.fromEntries(Object.entries(dict).map(([k, v]) => [v, k]));
+    
+    let result = '';
+    if (mode === 'toMorse') {
+        result = text.toUpperCase().split('').map(c => dict[c] || c).join(' ');
+    } else {
+        result = text.split(' ').map(c => revDict[c] || c).join('').replace(/\//g, ' ');
+    }
+    
+    return (
+        <section className="tool-section active">
+            <h2>Morse Code Converter</h2>
+            <div className="controls mt-2" style={{justifyContent:'center'}}>
+                <button className={`theme-btn ${mode === 'toMorse' ? 'active' : ''}`} onClick={()=>setMode('toMorse')}>Text to Morse</button>
+                <button className={`theme-btn ${mode === 'toText' ? 'active' : ''}`} onClick={()=>setMode('toText')}>Morse to Text</button>
+            </div>
+            <textarea className="tool-textarea" value={text} onChange={e=>setText(e.target.value)} placeholder={mode === 'toMorse' ? "Enter text..." : "Enter morse code (use spaces between letters, / for words)..."}></textarea>
+            <textarea className="tool-textarea mt-2" readOnly value={result} placeholder="Result..."></textarea>
+        </section>
+    );
+}
+
+function PalindromeChecker() {
+    const [text, setText] = useState('');
+    const clean = text.toLowerCase().replace(/[^a-z0-9]/g, '');
+    const isPal = clean.length > 0 && clean === clean.split('').reverse().join('');
+    
+    return (
+        <section className="tool-section active">
+            <h2>Palindrome Checker</h2>
+            <input type="text" style={{width:'100%'}} placeholder="Type a word or phrase..." value={text} onChange={e=>setText(e.target.value)} />
+            <div className="result-box text-center mt-2">
+                {text.length === 0 ? <h3>...</h3> : <h2 style={{color: isPal ? 'var(--success-color)' : 'var(--danger-color)'}}>{isPal ? 'It is a Palindrome!' : 'Not a Palindrome'}</h2>}
+            </div>
+        </section>
+    );
+}
+
+function TextRepeater() {
+    const [text, setText] = useState('');
+    const [count, setCount] = useState(5);
+    const [sep, setSep] = useState(' ');
+    
+    return (
+        <section className="tool-section active">
+            <h2>Text Repeater</h2>
+            <div className="controls">
+                <label>Text: <input type="text" value={text} onChange={e=>setText(e.target.value)} /></label>
+                <label>Repeat Count: <input type="number" min="1" max="10000" value={count} onChange={e=>setCount(e.target.value)} /></label>
+                <label>Separator: <input type="text" value={sep} onChange={e=>setSep(e.target.value)} /></label>
+            </div>
+            <textarea className="tool-textarea mt-2" readOnly value={Array(Number(count)).fill(text).join(sep)} placeholder="Result..."></textarea>
+        </section>
+    );
+}
+
+function LineBreakRemover() {
+    const [text, setText] = useState('');
+    return (
+        <section className="tool-section active">
+            <h2>Remove Line Breaks</h2>
+            <textarea className="tool-textarea" placeholder="Paste text with line breaks..." value={text} onChange={e=>setText(e.target.value)}></textarea>
+            <div className="controls mt-2">
+                <button className="action-btn" onClick={() => setText(text.replace(/(\r\n|\n|\r)/gm, " "))}>Remove Breaks (Space)</button>
+                <button className="action-btn" onClick={() => setText(text.replace(/(\r\n|\n|\r)/gm, ""))}>Remove Breaks (No Space)</button>
+                <button className="action-btn" onClick={() => setText(text.replace(/\n\s*\n/g, '\n'))}>Remove Empty Lines</button>
+            </div>
+        </section>
+    );
+}
+
+function AnagramChecker() {
+    const [w1, setW1] = useState('');
+    const [w2, setW2] = useState('');
+    const clean = (s) => s.toLowerCase().replace(/[^a-z]/g, '').split('').sort().join('');
+    const isAnagram = w1 && w2 && clean(w1) === clean(w2);
+    
+    return (
+        <section className="tool-section active">
+            <h2>Anagram Checker</h2>
+            <div className="controls">
+                <label>Word/Phrase 1: <input type="text" value={w1} onChange={e=>setW1(e.target.value)} /></label>
+                <label>Word/Phrase 2: <input type="text" value={w2} onChange={e=>setW2(e.target.value)} /></label>
+            </div>
+            <div className="result-box text-center mt-2">
+                {(!w1 || !w2) ? <h3>...</h3> : <h2 style={{color: isAnagram ? 'var(--success-color)' : 'var(--danger-color)'}}>{isAnagram ? 'They are Anagrams!' : 'Not Anagrams'}</h2>}
+            </div>
+        </section>
+    );
+}
+
+function XmlFormatter() {
+    const [text, setText] = useState('');
+    const format = () => {
+        let formatted = '', pad = 0;
+        const xml = text.replace(/(>)(<)(\/*)/g, '$1\r\n$2$3');
+        xml.split('\r\n').forEach(node => {
+            let indent = 0;
+            if (node.match( /.+<\/\w[^>]*>$/ )) indent = 0;
+            else if (node.match( /^<\/\w/ )) { if (pad !== 0) pad -= 1; }
+            else if (node.match( /^<\w[^>]*[^\/]>.*$/ )) indent = 1;
+            else indent = 0;
+            formatted += '  '.repeat(pad) + node + '\r\n';
+            pad += indent;
+        });
+        setText(formatted.trim());
+    };
+    return (
+        <section className="tool-section active">
+            <h2>XML Formatter</h2>
+            <textarea className="tool-textarea" value={text} onChange={e=>setText(e.target.value)}></textarea>
+            <button className="action-btn mt-2" onClick={format}>Format XML</button>
+        </section>
+    );
+}
+
+function CssMinifier() {
+    const [text, setText] = useState('');
+    const minify = () => {
+        setText(text.replace(/\/\*[\s\S]*?\*\/|[\r\n\t]+/g, '').replace(/\s+/g, ' ').replace(/ \}/g, '}').replace(/ \{ /g, '{').replace(/; /g, ';').replace(/: /g, ':').trim());
+    };
+    return (
+        <section className="tool-section active">
+            <h2>CSS Minifier</h2>
+            <textarea className="tool-textarea" value={text} onChange={e=>setText(e.target.value)}></textarea>
+            <button className="action-btn mt-2" onClick={minify}>Minify CSS</button>
+        </section>
+    );
+}
+
+function HtmlMinifier() {
+    const [text, setText] = useState('');
+    const minify = () => {
+        setText(text.replace(/<!--[\s\S]*?-->/g, '').replace(/[\r\n\t]+/g, ' ').replace(/\s+/g, ' ').replace(/> </g, '><').trim());
+    };
+    return (
+        <section className="tool-section active">
+            <h2>HTML Minifier</h2>
+            <textarea className="tool-textarea" value={text} onChange={e=>setText(e.target.value)}></textarea>
+            <button className="action-btn mt-2" onClick={minify}>Minify HTML</button>
+        </section>
+    );
+}
+
+function RegexTester() {
+    const [pattern, setPattern] = useState('');
+    const [flags, setFlags] = useState('g');
+    const [text, setText] = useState('');
+    const [res, setRes] = useState('...');
+    
+    useEffect(() => {
+        if(!pattern) { setRes('No pattern'); return; }
+        try {
+            const regex = new RegExp(pattern, flags);
+            const matches = text.match(regex);
+            if(matches) setRes(`Found ${matches.length} match(es):\n` + matches.join(', '));
+            else setRes('No matches found.');
+        } catch(e) { setRes('Invalid Regular Expression'); }
+    }, [pattern, flags, text]);
+
+    return (
+        <section className="tool-section active">
+            <h2>Regex Tester</h2>
+            <div className="controls">
+                <label>Pattern: <input type="text" placeholder="e.g. \d+" value={pattern} onChange={e=>setPattern(e.target.value)} /></label>
+                <label>Flags: <input type="text" placeholder="g, i, m" value={flags} onChange={e=>setFlags(e.target.value)} /></label>
+            </div>
+            <textarea className="tool-textarea" placeholder="Test string..." value={text} onChange={e=>setText(e.target.value)}></textarea>
+            <div className="result-box mt-2" style={{whiteSpace:'pre-wrap'}}>{res}</div>
+        </section>
+    );
+}
+
+function CompoundInterestCalc() {
+    const [p, setP] = useState(1000);
+    const [r, setR] = useState(5);
+    const [t, setT] = useState(10);
+    const [n, setN] = useState(12);
+    
+    const amount = p * Math.pow(1 + (r / 100) / n, n * t);
+    const interest = amount - p;
+
+    return (
+        <section className="tool-section active">
+            <h2>Compound Interest Calc</h2>
+            <div className="controls">
+                <label>Principal: <input type="number" value={p} onChange={e=>setP(e.target.value)}/></label>
+                <label>Rate (Annual %): <input type="number" value={r} onChange={e=>setR(e.target.value)}/></label>
+                <label>Time (Years): <input type="number" value={t} onChange={e=>setT(e.target.value)}/></label>
+                <label>Compounding / Year: <input type="number" value={n} onChange={e=>setN(e.target.value)}/></label>
+            </div>
+            <div className="grid-2 mt-2">
+                <div className="result-box text-center">Interest Earned:<br/><h2>${interest.toFixed(2)}</h2></div>
+                <div className="result-box text-center">Total Value:<br/><h2>${amount.toFixed(2)}</h2></div>
+            </div>
+        </section>
+    );
+}
+
+function RomanNumeralConverter() {
+    const [num, setNum] = useState('');
+    const [rom, setRom] = useState('');
+    
+    const toRoman = (n) => {
+        let val = parseInt(n);
+        if(isNaN(val) || val < 1 || val > 3999) return "Invalid (1-3999)";
+        const lookup = {M:1000,CM:900,D:500,CD:400,C:100,XC:90,L:50,XL:40,X:10,IX:9,V:5,IV:4,I:1};
+        let res = '';
+        for (let i in lookup) {
+            while (val >= lookup[i]) { res += i; val -= lookup[i]; }
+        }
+        return res;
+    };
+    
+    const toNum = (r) => {
+        const lookup = {M:1000,CM:900,D:500,CD:400,C:100,XC:90,L:50,XL:40,X:10,IX:9,V:5,IV:4,I:1};
+        let res = 0;
+        let str = r.toUpperCase();
+        for(let i in lookup) {
+            while(str.indexOf(i) === 0) { res += lookup[i]; str = str.replace(i, ''); }
+        }
+        return res === 0 ? "" : res;
+    };
+
+    return (
+        <section className="tool-section active">
+            <h2>Roman Numeral Converter</h2>
+            <div className="grid-2 mt-2">
+                <label>Number (1-3999): <input type="number" value={num} onChange={e=>{setNum(e.target.value); setRom(toRoman(e.target.value));}} /></label>
+                <label>Roman Numeral: <input type="text" value={rom} onChange={e=>{setRom(e.target.value.toUpperCase()); setNum(toNum(e.target.value));}} /></label>
+            </div>
+        </section>
+    );
+}
+
+function GcdLcmCalculator() {
+    const [n1, setN1] = useState(12);
+    const [n2, setN2] = useState(18);
+    
+    const getGcd = (a, b) => !b ? a : getGcd(b, a % b);
+    const gcd = getGcd(Math.abs(n1), Math.abs(n2)) || 0;
+    const lcm = (Math.abs(n1 * n2) / gcd) || 0;
+
+    return (
+        <section className="tool-section active">
+            <h2>GCD & LCM Calculator</h2>
+            <div className="controls">
+                <label>Number 1: <input type="number" value={n1} onChange={e=>setN1(e.target.value)} /></label>
+                <label>Number 2: <input type="number" value={n2} onChange={e=>setN2(e.target.value)} /></label>
+            </div>
+            <div className="grid-2 mt-2">
+                <div className="result-box text-center">Greatest Common Divisor (GCD):<br/><h2>{gcd}</h2></div>
+                <div className="result-box text-center">Least Common Multiple (LCM):<br/><h2>{lcm}</h2></div>
+            </div>
+        </section>
+    );
+}
+
+function TemperatureConverter() {
+    const [val, setVal] = useState(0);
+    const [unit, setUnit] = useState('C');
+    
+    const v = Number(val);
+    const c = unit === 'C' ? v : (unit === 'F' ? (v - 32) * 5/9 : v - 273.15);
+    const f = unit === 'F' ? v : (unit === 'C' ? v * 9/5 + 32 : (v - 273.15) * 9/5 + 32);
+    const k = unit === 'K' ? v : (unit === 'C' ? v + 273.15 : (v - 32) * 5/9 + 273.15);
+
+    return (
+        <section className="tool-section active">
+            <h2>Temperature Converter</h2>
+            <div className="controls">
+                <label>Value: <input type="number" value={val} onChange={e=>setVal(e.target.value)} /></label>
+                <label>From Unit:
+                    <select className="tool-textarea" style={{minHeight:'40px', padding:'0.5rem'}} value={unit} onChange={e=>setUnit(e.target.value)}>
+                        <option value="C">Celsius</option><option value="F">Fahrenheit</option><option value="K">Kelvin</option>
+                    </select>
+                </label>
+            </div>
+            <div className="grid-2 mt-2">
+                <div className="result-box text-center">Celsius: <h3>{c.toFixed(2)} °C</h3></div>
+                <div className="result-box text-center">Fahrenheit: <h3>{f.toFixed(2)} °F</h3></div>
+                <div className="result-box text-center" style={{gridColumn: '1 / -1'}}>Kelvin: <h3>{k.toFixed(2)} K</h3></div>
+            </div>
+        </section>
+    );
+}
+
+function LengthConverter() {
+    const [val, setVal] = useState(1);
+    const [unit, setUnit] = useState('m');
+    
+    const toMeter = { 'm': 1, 'km': 1000, 'cm': 0.01, 'mm': 0.001, 'mi': 1609.34, 'yd': 0.9144, 'ft': 0.3048, 'in': 0.0254 };
+    const meters = Number(val) * toMeter[unit];
+
+    return (
+        <section className="tool-section active">
+            <h2>Length Converter</h2>
+            <div className="controls">
+                <label>Value: <input type="number" value={val} onChange={e=>setVal(e.target.value)} /></label>
+                <label>Unit:
+                    <select className="tool-textarea" style={{minHeight:'40px', padding:'0.5rem'}} value={unit} onChange={e=>setUnit(e.target.value)}>
+                        <option value="m">Meters (m)</option><option value="km">Kilometers (km)</option><option value="cm">Centimeters (cm)</option>
+                        <option value="mi">Miles (mi)</option><option value="yd">Yards (yd)</option><option value="ft">Feet (ft)</option><option value="in">Inches (in)</option>
+                    </select>
+                </label>
+            </div>
+            <div className="grid-2 mt-2">
+                <div className="result-box text-center">Meters: <h4>{(meters).toFixed(4)} m</h4></div>
+                <div className="result-box text-center">Feet: <h4>{(meters / toMeter['ft']).toFixed(4)} ft</h4></div>
+                <div className="result-box text-center">Kilometers: <h4>{(meters / toMeter['km']).toFixed(4)} km</h4></div>
+                <div className="result-box text-center">Miles: <h4>{(meters / toMeter['mi']).toFixed(4)} mi</h4></div>
+            </div>
+        </section>
+    );
+}
+
+function WeightConverter() {
+    const [val, setVal] = useState(1);
+    const [unit, setUnit] = useState('kg');
+    
+    const toKg = { 'kg': 1, 'g': 0.001, 'mg': 0.000001, 'lb': 0.453592, 'oz': 0.0283495 };
+    const kg = Number(val) * toKg[unit];
+
+    return (
+        <section className="tool-section active">
+            <h2>Weight Converter</h2>
+            <div className="controls">
+                <label>Value: <input type="number" value={val} onChange={e=>setVal(e.target.value)} /></label>
+                <label>Unit:
+                    <select className="tool-textarea" style={{minHeight:'40px', padding:'0.5rem'}} value={unit} onChange={e=>setUnit(e.target.value)}>
+                        <option value="kg">Kilograms (kg)</option><option value="g">Grams (g)</option>
+                        <option value="lb">Pounds (lb)</option><option value="oz">Ounces (oz)</option>
+                    </select>
+                </label>
+            </div>
+            <div className="grid-2 mt-2">
+                <div className="result-box text-center">Kilograms: <h4>{(kg).toFixed(4)} kg</h4></div>
+                <div className="result-box text-center">Grams: <h4>{(kg / toKg['g']).toFixed(2)} g</h4></div>
+                <div className="result-box text-center">Pounds: <h4>{(kg / toKg['lb']).toFixed(4)} lb</h4></div>
+                <div className="result-box text-center">Ounces: <h4>{(kg / toKg['oz']).toFixed(4)} oz</h4></div>
+            </div>
+        </section>
+    );
+}
+
+function DataStorageConverter() {
+    const [val, setVal] = useState(1);
+    const [unit, setUnit] = useState('MB');
+    
+    const toBytes = { 'B': 1, 'KB': 1024, 'MB': 1048576, 'GB': 1073741824, 'TB': 1099511627776 };
+    const bytes = Number(val) * toBytes[unit];
+
+    return (
+        <section className="tool-section active">
+            <h2>Data Storage Converter</h2>
+            <div className="controls">
+                <label>Value: <input type="number" value={val} onChange={e=>setVal(e.target.value)} /></label>
+                <label>Unit:
+                    <select className="tool-textarea" style={{minHeight:'40px', padding:'0.5rem'}} value={unit} onChange={e=>setUnit(e.target.value)}>
+                        <option value="B">Bytes</option><option value="KB">Kilobytes</option><option value="MB">Megabytes</option>
+                        <option value="GB">Gigabytes</option><option value="TB">Terabytes</option>
+                    </select>
+                </label>
+            </div>
+            <div className="grid-2 mt-2">
+                <div className="result-box text-center">KB: <h4>{(bytes / toBytes['KB']).toPrecision(6)}</h4></div>
+                <div className="result-box text-center">MB: <h4>{(bytes / toBytes['MB']).toPrecision(6)}</h4></div>
+                <div className="result-box text-center">GB: <h4>{(bytes / toBytes['GB']).toPrecision(6)}</h4></div>
+                <div className="result-box text-center">TB: <h4>{(bytes / toBytes['TB']).toPrecision(6)}</h4></div>
+            </div>
+        </section>
+    );
+}
+
+function SpeedConverter() {
+    const [val, setVal] = useState(100);
+    const [unit, setUnit] = useState('kmh');
+    
+    const toMs = { 'ms': 1, 'kmh': 0.277778, 'mph': 0.44704, 'knots': 0.514444 };
+    const ms = Number(val) * toMs[unit];
+
+    return (
+        <section className="tool-section active">
+            <h2>Speed Converter</h2>
+            <div className="controls">
+                <label>Value: <input type="number" value={val} onChange={e=>setVal(e.target.value)} /></label>
+                <label>Unit:
+                    <select className="tool-textarea" style={{minHeight:'40px', padding:'0.5rem'}} value={unit} onChange={e=>setUnit(e.target.value)}>
+                        <option value="ms">Meters/sec (m/s)</option><option value="kmh">Km/hour (km/h)</option>
+                        <option value="mph">Miles/hour (mph)</option><option value="knots">Knots</option>
+                    </select>
+                </label>
+            </div>
+            <div className="grid-2 mt-2">
+                <div className="result-box text-center">km/h: <h4>{(ms / toMs['kmh']).toFixed(2)}</h4></div>
+                <div className="result-box text-center">mph: <h4>{(ms / toMs['mph']).toFixed(2)}</h4></div>
+                <div className="result-box text-center">m/s: <h4>{(ms).toFixed(2)}</h4></div>
+                <div className="result-box text-center">knots: <h4>{(ms / toMs['knots']).toFixed(2)}</h4></div>
+            </div>
+        </section>
+    );
+}
+
+function CountdownTimer() {
+    const [target, setTarget] = useState('');
+    const [left, setLeft] = useState('');
+    
+    useEffect(() => {
+        if(!target) return;
+        const int = setInterval(() => {
+            const diff = new Date(target).getTime() - new Date().getTime();
+            if(diff <= 0) { setLeft("Timer Expired!"); clearInterval(int); return; }
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+            setLeft(`${d}d ${h}h ${m}m ${s}s`);
+        }, 1000);
+        return () => clearInterval(int);
+    }, [target]);
+
+    return (
+        <section className="tool-section active">
+            <h2>Countdown Timer</h2>
+            <div className="controls">
+                <label>Target Date/Time: <input type="datetime-local" value={target} onChange={e=>setTarget(e.target.value)} /></label>
+            </div>
+            <div className="result-box mt-2 text-center">
+                <h1 style={{fontSize:'2.5rem', color:'var(--primary-color)'}}>{left || '0d 0h 0m 0s'}</h1>
+            </div>
+        </section>
+    );
+}
+
+function Magic8Ball() {
+    const [ans, setAns] = useState('Ask a question and shake!');
+    const answers = [ "It is certain.", "It is decidedly so.", "Without a doubt.", "Yes - definitely.", "You may rely on it.", "As I see it, yes.", "Most likely.", "Outlook good.", "Yes.", "Signs point to yes.", "Reply hazy, try again.", "Ask again later.", "Better not tell you now.", "Cannot predict now.", "Concentrate and ask again.", "Don't count on it.", "My reply is no.", "My sources say no.", "Outlook not so good.", "Very doubtful." ];
+    
+    return (
+        <section className="tool-section active text-center">
+            <h2>Magic 8 Ball</h2>
+            <div className="result-box mt-2" style={{height:'200px', width:'200px', borderRadius:'50%', background:'#111', color:'#fff', display:'flex', alignItems:'center', justifyContent:'center', margin:'0 auto', border:'10px solid #333', padding:'1rem'}}>
+                <h3 style={{color:'var(--primary-color)'}}>{ans}</h3>
+            </div>
+            <button className="action-btn mt-4" onClick={() => setAns(answers[Math.floor(Math.random() * answers.length)])}>Shake 8 Ball</button>
+        </section>
+    );
+}
+
+function JokeGenerator() {
+    const [joke, setJoke] = useState('Click to generate a joke!');
+    const jokes = [
+        "Why do programmers prefer dark mode? Because light attracts bugs.",
+        "How many programmers does it take to change a light bulb? None, that's a hardware problem.",
+        "A SQL query goes into a bar, walks up to two tables and asks... 'Can I join you?'",
+        "There are 10 types of people in the world: those who understand binary, and those who don't.",
+        "Why did the programmer quit his job? Because he didn't get arrays.",
+        "I would tell you a joke about UDP, but you might not get it.",
+        "What's a programmer's favorite hangout place? Foo Bar.",
+        "To understand what recursion is, you must first understand recursion.",
+        "Why do Java programmers have to wear glasses? Because they don't C#.",
+        "A good programmer is someone who always looks both ways before crossing a one-way street."
+    ];
+    
+    return (
+        <section className="tool-section active text-center">
+            <h2>Programming Joke Generator</h2>
+            <div className="result-box mt-2" style={{minHeight:'150px', display:'flex', alignItems:'center', justifyContent:'center'}}>
+                <h2>{joke}</h2>
+            </div>
+            <button className="action-btn mt-2" onClick={() => setJoke(jokes[Math.floor(Math.random() * jokes.length)])}>Tell me a joke!</button>
         </section>
     );
 }
@@ -661,7 +1223,7 @@ function PrimeChecker() {
             <h2>Prime Number Checker</h2>
             <input type="number" style={{width:'100%'}} value={num} onChange={e=>setNum(e.target.value)} />
             <div className="result-box text-center mt-2">
-                <h2 style={{color: isP ? '#10b981' : '#ef4444'}}>{num} is {isP ? 'Prime' : 'NOT Prime'}</h2>
+                <h2 style={{color: isP ? 'var(--success-color)' : 'var(--danger-color)'}}>{num} is {isP ? 'Prime' : 'NOT Prime'}</h2>
             </div>
         </section>
     );
@@ -674,9 +1236,9 @@ function PomodoroTimer() {
     const [running, setRunning] = useState(false);
     const [mode, setMode] = useState('Work');
     useEffect(() => {
-        let int; if(running && timeLeft > 0) int = setInterval(()=>setTimeLeft(t=>t-1), 1000);
-        return () => clearInterval(int);
-    }, [running, timeLeft]);
+        let int; if(running) int = setInterval(()=>setTimeLeft(t=>(t > 0 ? t - 1 : 0)), 1000);
+        return () => { if (int) clearInterval(int); };
+    }, [running]);
     const m = Math.floor(timeLeft/60).toString().padStart(2,'0');
     const s = (timeLeft%60).toString().padStart(2,'0');
     return (
@@ -689,7 +1251,7 @@ function PomodoroTimer() {
             <div className="result-box text-center mt-2"><h3 style={{color:'var(--text-muted)'}}>{mode}</h3><h1 style={{fontSize:'4rem', fontVariantNumeric:'tabular-nums'}}>{m}:{s}</h1></div>
             <div className="controls mt-2">
                 <button className="action-btn" onClick={()=>setRunning(!running)}>{running ? 'Pause' : 'Start'}</button>
-                <button className="action-btn" style={{background:'#6b7280'}} onClick={()=>{setRunning(false); setTimeLeft(mode==='Work'?25*60:5*60);}}>Reset</button>
+                <button className="action-btn" style={{background:'var(--warning-color)'}} onClick={()=>{setRunning(false); setTimeLeft(mode==='Work'?25*60:5*60);}}>Reset</button>
             </div>
         </section>
     );
@@ -719,7 +1281,7 @@ function LeapYear() {
             <h2>Leap Year Checker</h2>
             <input type="number" style={{width:'100%'}} value={year} onChange={e=>setYear(e.target.value)} />
             <div className="result-box text-center mt-2">
-                <h2 style={{color: isLeap ? '#10b981' : '#ef4444'}}>{year} is {isLeap ? 'a Leap Year' : 'NOT a Leap Year'}</h2>
+                <h2 style={{color: isLeap ? 'var(--success-color)' : 'var(--danger-color)'}}>{year} is {isLeap ? 'a Leap Year' : 'NOT a Leap Year'}</h2>
             </div>
         </section>
     );
@@ -841,7 +1403,7 @@ function Stopwatch() {
     const [running, setRunning] = useState(false);
     useEffect(() => {
         let int; if(running) int = setInterval(()=>setTime(t=>t+1), 1000);
-        return () => clearInterval(int);
+        return () => { if (int) clearInterval(int); };
     }, [running]);
     return (
         <section className="tool-section active">
@@ -849,8 +1411,8 @@ function Stopwatch() {
             <div className="result-box text-center"><h1 style={{fontSize:'3rem', fontVariantNumeric:'tabular-nums'}}>{new Date(time*1000).toISOString().substr(11,8)}</h1></div>
             <div className="controls mt-2">
                 <button className="action-btn" onClick={()=>setRunning(true)}>Start</button>
-                <button className="action-btn" style={{background:'#ef4444'}} onClick={()=>setRunning(false)}>Stop</button>
-                <button className="action-btn" style={{background:'#6b7280'}} onClick={()=>{setRunning(false); setTime(0);}}>Reset</button>
+                <button className="action-btn" style={{background:'var(--danger-color)'}} onClick={()=>setRunning(false)}>Stop</button>
+                <button className="action-btn" style={{background:'var(--warning-color)'}} onClick={()=>{setRunning(false); setTime(0);}}>Reset</button>
             </div>
         </section>
     );
@@ -937,28 +1499,25 @@ function ImageToPdf() {
         setStatus("Generating PDF... Please wait.");
         const pdf = new jsPDF();
 
-        const readFileAsDataURL = (file) => {
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.onload = () => resolve(reader.result);
-                reader.onerror = reject;
-                reader.readAsDataURL(file);
-            });
-        };
-
         for (let i = 0; i < files.length; i++) {
             const file = files[i];
-            const imgData = await readFileAsDataURL(file);
             
+            const imgUrl = URL.createObjectURL(file);
             const img = new Image();
-            img.src = imgData;
+            img.src = imgUrl;
             await new Promise(resolve => img.onload = resolve);
             
             const pdfWidth = pdf.internal.pageSize.getWidth();
             const pdfHeight = (img.height * pdfWidth) / img.width;
 
             if (i > 0) pdf.addPage();
-            pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+            
+            const canvas = document.createElement('canvas');
+            canvas.width = img.width; canvas.height = img.height;
+            canvas.getContext('2d').drawImage(img, 0, 0);
+            pdf.addImage(canvas.toDataURL('image/jpeg', 0.8), 'JPEG', 0, 0, pdfWidth, pdfHeight);
+            
+            URL.revokeObjectURL(imgUrl);
         }
 
         pdf.save("NIK_TOOLS_Converted.pdf");

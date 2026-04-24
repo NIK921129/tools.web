@@ -7,14 +7,17 @@
     --text-muted: #71717a;
     --panel-bg: #ffffff;
     --nav-bg: rgba(255, 255, 255, 0.85);
-    --primary-color: #8b5cf6; /* Violet 500 */
-    --primary-grad: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
-    --primary-hover: #7c3aed;
-    --primary-light: #ede9fe;
+    --primary-color: #6506e6;
+    --primary-grad: linear-gradient(135deg, #6506e6 0%, #d63add 100%);
+    --primary-hover: #d63add;
+    --primary-light: rgba(101, 6, 230, 0.1);
     --border-color: #e4e4e7;
     --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.06);
-    --shadow-hover: 0 20px 40px -5px rgba(139, 92, 246, 0.15);
+    --shadow-hover: 0 20px 40px -5px rgba(214, 58, 221, 0.2);
     --radius: 20px;
+    --success-color: #7ad98c;
+    --warning-color: #b79723;
+    --danger-color: #b31503;
 }
 
 /* Modern Dark Mode */
@@ -24,13 +27,13 @@
     --text-muted: #a1a1aa;
     --panel-bg: #18181b;
     --nav-bg: rgba(24, 24, 27, 0.85);
-    --primary-color: #a78bfa; /* Violet 400 */
-    --primary-grad: linear-gradient(135deg, #a78bfa 0%, #818cf8 100%);
-    --primary-hover: #8b5cf6;
-    --primary-light: rgba(99, 102, 241, 0.15);
+    --primary-color: #d63add;
+    --primary-grad: linear-gradient(135deg, #d63add 0%, #6506e6 100%);
+    --primary-hover: #6506e6;
+    --primary-light: rgba(214, 58, 221, 0.15);
     --border-color: #27272a;
     --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.4);
-    --shadow-hover: 0 20px 40px -5px rgba(167, 139, 250, 0.15);
+    --shadow-hover: 0 20px 40px -5px rgba(214, 58, 221, 0.25);
 }
 
 * {
@@ -158,8 +161,8 @@ p { margin-bottom: 2rem; color: var(--text-muted); line-height: 1.6; }
 .controls label { display: flex; flex-direction: column; font-weight: 500; gap: 0.5rem; flex: 1; min-width: 200px; }
 .highlight-text { color: var(--primary-color); font-weight: 700; }
 
-input[type="number"], input[type="text"], input[type="date"], input[type="color"], .tool-textarea { padding: 0.75rem 1rem; background-color: var(--bg-color); color: var(--text-color); border: 1px solid var(--border-color); border-radius: 8px; outline: none; transition: 0.2s; font-size: 1rem; }
-input[type="number"]:focus, input[type="text"]:focus, input[type="date"]:focus, input[type="color"]:focus, .tool-textarea:focus { border-color: var(--primary-color); box-shadow: 0 0 0 3px var(--primary-light); }
+input[type="number"], input[type="text"], input[type="date"], input[type="datetime-local"], input[type="color"], select, .tool-textarea { padding: 0.75rem 1rem; background-color: var(--bg-color); color: var(--text-color); border: 1px solid var(--border-color); border-radius: 8px; outline: none; transition: 0.2s; font-size: 1rem; }
+input[type="number"]:focus, input[type="text"]:focus, input[type="date"]:focus, input[type="datetime-local"]:focus, input[type="color"]:focus, select:focus, .tool-textarea:focus { border-color: var(--primary-color); box-shadow: 0 0 0 3px var(--primary-light); }
 
 .action-btn { background: var(--primary-grad); color: white; border: none; padding: 14px 24px; font-size: 1rem; border-radius: 12px; cursor: pointer; font-weight: 600; transition: all 0.3s ease; width: 100%; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
 .action-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px var(--primary-light); }
@@ -174,9 +177,9 @@ input[type="number"]:focus, input[type="text"]:focus, input[type="date"]:focus, 
 .calc-btn:hover { background-color: var(--border-color); transform: scale(0.97); }
 .calc-btn:active { transform: scale(0.92); }
 .calc-btn.op { background: var(--primary-light); color: var(--primary-color); font-weight: 600; border-color: transparent; }
-.calc-btn.clear { background-color: #fee2e2; color: #ef4444; border-color: transparent; font-weight: 600;}
+.calc-btn.clear { background-color: rgba(179, 21, 3, 0.1); color: var(--danger-color); border-color: transparent; font-weight: 600;}
 .calc-btn.equal { background: var(--primary-grad); color: white; }
-[data-theme="amoled"] .calc-btn.clear { background-color: rgba(239, 68, 68, 0.2); }
+[data-theme="amoled"] .calc-btn.clear { background-color: rgba(179, 21, 3, 0.2); }
 
 /* Tool Utility Classes */
 .tool-textarea { width: 100%; min-height: 120px; resize: vertical; font-family: 'Inter', inherit; }
